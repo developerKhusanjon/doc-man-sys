@@ -14,7 +14,7 @@ object Main extends App {
   val route =
     path("health") {
       get {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>200</h1>"))
+        complete(StatusCodes.OK, HttpEntity(ContentTypes.`application/json`, "200"))
       }
     }
 
