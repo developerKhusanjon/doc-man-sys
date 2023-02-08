@@ -1,8 +1,9 @@
-import akka.actor.typed.ActorSystem
+import akka.actor.typed.{ActorRef, ActorSystem}
 import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
+import dev.khusanjon.docmansys.migration.DatabaseMigrationActor
 
 import scala.concurrent.ExecutionContext
 import scala.io.StdIn
@@ -14,7 +15,7 @@ object Main extends App {
   val route =
     path("health") {
       get {
-        complete(StatusCodes.OK, HttpEntity(ContentTypes.`application/json`, "200"))
+        complete(StatusCodes.OK)
       }
     }
 
