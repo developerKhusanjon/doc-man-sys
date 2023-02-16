@@ -1,15 +1,15 @@
-import akka.actor.typed.{ActorRef, ActorSystem}
+import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
-import dev.khusanjon.docmansys.migration.DatabaseMigrationActor
+import dev.khusanjon.docmansys.actor.{AdminActor, EmployeeActor}
 
 import scala.concurrent.ExecutionContext
 import scala.io.StdIn
 
 object Main extends App {
-  private implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "main-system")
+  private implicit val system: ActorSystem[AdminActor.Action with EmployeeActor.Action] = ActorSystem(Behaviors.empty, "main-system")
   protected implicit val executor: ExecutionContext = system.executionContext
 
   val route =
