@@ -20,7 +20,8 @@ CREATE TABLE employees (
 -- WebForms
 CREATE TABLE web_forms (
   id serial PRIMARY KEY,
-  title varchar(100) NOT NULL
+  title varchar(100) NOT NULL,
+  company_id integer REFERENCES companies
 );
 
 CREATE TABLE form_fields (
