@@ -31,8 +31,8 @@ enablePlugins(FlywayPlugin)
 
 lazy val CustomConfig = config("custom") extend Runtime
 lazy val customSettings: Seq[Def.Setting[_]] = Seq(
-  flywayUser := "docker",
-  flywayPassword := "docker",
+  flywayUser := "khusanjon",
+  flywayPassword := "mig99",
   flywayUrl := "jdbc:postgresql://localhost:5432/docdb",
   flywayLocations += "db/migration"
 )
